@@ -15,7 +15,7 @@
     * Option 2: Download it as a Zip file and extract it
 2. CD into the `tutorial-webdriverio5-visualgrid` folder
 3. run `npm install`
-4. run `nmp test`
+4. run `npm test`
 
 ### Adding to an existing Node.js example
 
