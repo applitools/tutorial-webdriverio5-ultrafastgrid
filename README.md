@@ -11,9 +11,9 @@
 ### Running the example:
 
 1. Download the example
-    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio5-visualgrid.git`
+    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio5-ultrafastgrid.git`
     * Option 2: Download it as a Zip file and extract it
-2. CD into the `tutorial-webdriverio5-visualgrid` folder
+2. CD into the `tutorial-webdriverio5-ultrafastgrid` folder
 3. run `npm install`
 4. run `npm test`
 
