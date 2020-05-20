@@ -13,35 +13,33 @@ const {
     ScreenOrientation
 } = require('@applitools/eyes-webdriverio');
 
-
 let browser;
 let eyes;
 
 describe('wdio5', function () {
-
+    let runner
 
     beforeEach(async () => {
-        // Use chrome browser
         const chrome = {
             capabilities: {
                 browserName: 'chrome'
             },
             logLevel: 'silent',
         };
-        // Use Chrome browser
+        // Create a new chrome web driver
         browser = await remote(chrome);
 
-        // Initialize the Runner for your test.
-        const runner = new VisualGridRunner();
+        // Create a runner with concurrency of 1
+        runner = new VisualGridRunner(1);
 
-        // Initialize the eyes SDK
+        // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
         eyes = new Eyes(runner);
 
         // Initialize the eyes configuration
         const configuration = new Configuration();
 
         // You can get your api key from the Applitools dashboard
-        configuration.setApiKey('X88oeVgnovhhWwGWqUslkA1048l7Dt7FFgrsEw9NdHlkQ110')
+        // configuration.setApiKey('APPLITOOLS_API_KEY')
 
         // Set new batch
         configuration.setBatch(new BatchInfo('Ultrafast Batch'))
@@ -62,28 +60,26 @@ describe('wdio5', function () {
     });
 
 
-    it('Classic Runner Test', async () => {
+    it('ultraFastTest', async () => {
 
-        // Start the test by setting AUT's name, test name and viewport size (width X height)
-        await eyes.open(browser, 'Demo App', 'Ultrafast grid demo', new RectangleSize(800, 600));
-
-        // Navigate the browser to the "ACME" demo app.
+        // Navigate to the url we want to test
         await browser.url('https://demo.applitools.com');
 
-        // To see visual bugs after the first run, use the commented line below instead.
-        // await driver.url("https://demo.applitools.com/index_v2.html");
+        // Call Open on eyes to initialize a test session
+        await eyes.open(browser, 'Demo App wdio5', 'Ultrafast grid demo', new RectangleSize(800, 600));
 
-        // Visual checkpoint #1.
+        // check the login page with fluent api, see more info here
+        // https://applitools.com/docs/topics/sdk/the-eyes-sdk-check-fluent-api.html
         await eyes.check('Login Window', Target.window().fully());
 
         // Click the "Log in" button.
         const loginButton = await browser.$('#log-in');
         await loginButton.click();
 
-        // Visual checkpoint #2.
+        // Check the app page
         await eyes.check('App Window', Target.window().fully());
 
-        // End the test
+        // Call Close on eyes to let the server know it should display the results
         await eyes.closeAsync();
     });
 
@@ -92,12 +88,12 @@ describe('wdio5', function () {
         await browser.deleteSession();
 
         // If the test was aborted before eyes.close was called, ends the test as aborted.
-        await eyes.abortIfNotClosed();
+        await eyes.abortAsync();
 
-        // Wait and collect all test results
-        const results = await eyes.getRunner().getAllTestResults(false);
+        // we pass false to this method to suppress the exception that is thrown if we
+        // find visual differences
+        const results = await runner.getAllTestResults(false);
         console.log(results);
-        console.log(results.getAllResults());
     });
 
 });
