@@ -19,7 +19,7 @@ let eyes;
 describe('wdio5', function () {
     let runner
 
-    beforeEach(async () => {
+    before(async () => {
         const chrome = {
             capabilities: {
                 browserName: 'chrome'
@@ -83,7 +83,7 @@ describe('wdio5', function () {
         await eyes.closeAsync();
     });
 
-    afterEach(async () => {
+    after(async () => {
         // Close the browser
         await browser.deleteSession();
 
