@@ -41,7 +41,7 @@ describe('wdio5', function () {
         // You can get your api key from the Applitools dashboard
         configuration.setApiKey('APPLITOOLS_API_KEY')
 
-        // Set new batch
+        // create a new batch info instance and set it to the configuration
         configuration.setBatch(new BatchInfo('Ultrafast Batch'))
 
         // Add browsers with different viewports
@@ -63,6 +63,9 @@ describe('wdio5', function () {
     it('ultraFastTest', async () => {
 
         // Navigate to the url we want to test
+        // ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
+        // but then change the above URL to https://demo.applitools.com/index_v2.html
+        // (for the 2nd run)
         await browser.url('https://demo.applitools.com');
 
         // Call Open on eyes to initialize a test session
