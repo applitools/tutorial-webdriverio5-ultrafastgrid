@@ -1,31 +1,15 @@
-### Pre-requisites:
+# Applitools Tutorial - WebdriverIO 5 Ultrafast Grid
 
-1. Download Selenium Standalone server [here](https://www.seleniumhq.org/download/)
-    * Note that this is a `jar` file. So you should also have Java installed on your machine.
-2. Chrome Webdriver is on your machine and is in the PATH. Here are some resources from the internet that'll help you.
-   * https://splinter.readthedocs.io/en/0.1/setup-chrome.html
-   * https://stackoverflow.com/questions/38081021/using-selenium-on-mac-chrome
-   * https://www.youtube.com/watch?time_continue=182&v=dz59GsdvUF8  
-3. Run the standalone server jar file - it should look something like below:
-    * `java -jar selenium-server-standalone-3.141.59.jar` (Replace the jar file name with your jar file name) 
-    * This will run Selenium on localhost and on port 4444
-4. Install Node.js from [here](https://nodejs.org/en/)
+Get started with Applitools visual testing with this example of using the Ultrafast Grid with the Applitools WebdriverIO 5 SDK.
 
+Learn more about how to install and start this project with our [Cypress tutorial](https://applitools.com/tutorials/webdriverio5.html)!
 
-### Running the example:
+<https://applitools.com/tutorials/webdriverio5.html>
 
-1. Download the example
-    * Option 1: `git clone https://github.com/applitools/tutorial-webdriverio5-ultrafastgrid.git`
-    * Option 2: Download it as a Zip file and extract it
-2. CD into the `tutorial-webdriverio5-ultrafastgrid` folder
-3. Change the `APPLITOOLS_API_KEY` with your own.
-    * Login to Applitools > Click on the Person icon > My API Key
-4. run `npm install`
-5. run `npm test`
+## More Information
 
-### Adding to an existing Node.js example
+Learn more about Applitools [Eyes](https://info.applitools.com/ucY77) and the [Ultrafast Test Cloud](https://info.applitools.com/ucY78) at [applitools.com](https://info.applitools.com/ucY76).
 
-```sh
-npm install "@applitools/eyes-webdriverio" --save-dev
-
-```
+More about the Eyes WebdriverIO 5 SDK:
+* https://www.npmjs.com/package/@applitools/eyes.webdriverio
+* https://applitools.com/docs/api/eyes-sdk/index-gen/class-eyes-webdriverio_sdk5-javascript.html
