@@ -2,7 +2,7 @@
 
 Get started with Applitools visual testing with this example of using the Ultrafast Grid with the Applitools WebdriverIO 5 SDK.
 
-Learn more about how to install and start this project with our [Cypress tutorial](https://applitools.com/tutorials/webdriverio5.html)!
+Learn more about how to install and start this project with our [WebdriverIO 5 tutorial](https://applitools.com/tutorials/webdriverio5.html)!
 
 <https://applitools.com/tutorials/webdriverio5.html>
 
