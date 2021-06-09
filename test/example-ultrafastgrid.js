@@ -26,6 +26,7 @@ describe('wdio5', function () {
                 browserName: 'chrome'
             },
             logLevel: 'silent',
+            host: (process.env.CI === 'true') ? 'selenium' : '127.0.0.1'
         };
         // Create a new chrome web driver
         browser = await remote(chrome);
@@ -68,7 +69,7 @@ describe('wdio5', function () {
         await browser.url('https://demo.applitools.com');
 
         // Call Open on eyes to initialize a test session
-        await eyes.open(browser, 'Demo App', 'Ultrafast grid demo', new RectangleSize(800, 600));
+        await eyes.open(browser, 'Demo App - Wdio5', 'Ultrafast grid demo', new RectangleSize(800, 600));
 
         // check the login page with fluent api, see more info here
         // https://applitools.com/docs/topics/sdk/the-eyes-sdk-check-fluent-api.html
@@ -82,7 +83,7 @@ describe('wdio5', function () {
         await eyes.check('App Window', Target.window().fully());
 
         // Call Close on eyes to let the server know it should display the results
-        await eyes.closeAsync();
+        await eyes.close(false);
     });
 
     after(async () => {
@@ -90,11 +91,11 @@ describe('wdio5', function () {
         await browser.deleteSession();
 
         // If the test was aborted before eyes.close was called, ends the test as aborted.
-        await eyes.abortAsync();
+        await eyes.abort();
 
         // we pass false to this method to suppress the exception that is thrown if we
         // find visual differences
-        const results = await runner.getAllTestResults(false);
+        const results = await runner.getAllTestResults();
         console.log(results);
     });
 
