@@ -26,7 +26,7 @@ describe('wdio5', function () {
                 browserName: 'chrome'
             },
             logLevel: 'silent',
-            host: (process.env.CI === 'true') ? 'selenium' : '127.0.0.1'
+            hostname: (process.env.CI === 'true') ? 'selenium' : '127.0.0.1'
         };
         // Create a new chrome web driver
         browser = await remote(chrome);
