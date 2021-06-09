@@ -42,7 +42,7 @@ describe('wdio5', function () {
         const configuration = new Configuration();
 
         // create a new batch info instance and set it to the configuration
-        configuration.setBatch(new BatchInfo('Ultrafast Batch'))
+        configuration.setBatch(new BatchInfo('Ultrafast Batch - WDIO 5 - Ultrafast'))
 
         // Add browsers with different viewports
         configuration.addBrowser(800, 600, BrowserType.CHROME);
@@ -69,7 +69,7 @@ describe('wdio5', function () {
         await browser.url('https://demo.applitools.com');
 
         // Call Open on eyes to initialize a test session
-        await eyes.open(browser, 'Demo App - Wdio5', 'Ultrafast grid demo', new RectangleSize(800, 600));
+        await eyes.open(browser, 'Demo App - WDIO 5 - Ultrafast', 'Smoke Test - WDIO 5 - Ultrafast', new RectangleSize(800, 600));
 
         // check the login page with fluent api, see more info here
         // https://applitools.com/docs/topics/sdk/the-eyes-sdk-check-fluent-api.html
