@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "webdriverio": "^5.23.0",
-    "@applitools/eyes-webdriverio": "5.31.8",
+    "@applitools/eyes-webdriverio": "5.31.9",
     "mocha": "6.2.3"
   }
 }
