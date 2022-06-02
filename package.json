@@ -12,5 +12,8 @@
     "webdriverio": "^5.23.0",
     "@applitools/eyes-webdriverio": "5.32.12",
     "mocha": "6.2.3"
+  },
+  "engines": {
+    "node": ">=12.13.0"
   }
 }
